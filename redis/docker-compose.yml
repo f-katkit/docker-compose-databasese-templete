@@ -1,0 +1,15 @@
+version: '3.1'
+
+services:
+  redis:
+    image: redis:5-alpine
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes --requirepass redis_password
+    volumes:
+       - dbdata:/data
+    environment:
+      TZ: Asia/Tokyo
+
+volumes:
+  dbdata:

@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  # ref: https://hub.docker.com/_/mysql
+  db:
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_name
+      MYSQL_USER: db_user
+      MYSQL_PASSWORD: db_password
+      TZ: 'Asia/Tokyo'
+    volumes:
+    - dbdata:/var/lib/mysql
+
+volumes:
+  dbdata:

@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+  postgres:
+    image: postgres:10-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      TZ: Asia/Tokyo
+      POSTGRES_USER: user_name
+      POSTGRES_PASSWORD: db_password
+      POSTGRES_DB: db_name
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+
+volumes:
+  dbdata:
